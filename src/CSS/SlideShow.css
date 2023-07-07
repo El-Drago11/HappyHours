@@ -1,0 +1,6 @@
+#item :hover{
+    transform: scale(1.2,1.2);
+}
+#item{
+    margin-bottom: 10%;
+}

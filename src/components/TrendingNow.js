@@ -1,0 +1,88 @@
+
+import React, { useEffect, useState}from 'react'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import {useStateValue} from "./StateProvider" 
+
+const base_url = "https://image.tmdb.org/t/p/original/"
+
+
+const TrendingNow = () => {
+  const [{basket}, dispatch] = useStateValue();
+  console.log(basket)
+
+  const getCard = (value)=>{
+    dispatch({
+      type:"Card_Click",
+      
+      // transfering the data
+      item:{
+        image : `${base_url}${value.poster_path}`
+      }
+    })
+  }
+
+  const [data, getData] = useState([])
+  
+  const url= 'https://api.themoviedb.org/3/trending/all/week?api_key=61921c21ceb0e087ac30d788cd569b79&language=en-US'
+
+  const fetchApi = async() =>{
+      try {
+          const response = await fetch(url);
+          const result = await response.json();
+          getData(result.results)
+         
+      } catch (error) {
+          console.error(error);
+      }
+  }
+  
+  useEffect(()=>{
+    fetchApi();
+     // eslint-disable-next-line
+  },[])
+
+    const responsive = { //Genres Slide Show
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          partialVisibilityGutter: 40,
+          items: 8
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          partialVisibilityGutter: 40,
+          items: 7
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          partialVisibilityGutter: 30,
+          items: 6
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          partialVisibilityGutter: 40,
+          items: 5
+        }
+      };
+  return (
+    <>
+        <div className='container-fluid mb-md-2 my-md-3 mx-md-3'>
+          <Carousel swipeable={false} draggable={false}responsive={responsive}ssr={true}infinite={true}autoPlay={true}
+            autoPlaySpeed={3000} keyBoardControl={true} showArrows={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
+              {data.map((value)=>{
+                return(
+                    <>
+                    <a className="carousel mb-md-3 mx-md-5" id='item' onClick={()=>getCard(value)}href='CardData' >
+                        <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3 mx-md-5" alt="..."/>
+                    </a>
+                </>
+                )
+              })}
+          </Carousel>
+        </div>
+    </>
+  )
+}
+
+export default TrendingNow ;
