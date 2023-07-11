@@ -7,9 +7,9 @@ const NavBar = () => {
   console.log(basket)
   return (
   <div>
-    <nav className="navbar navbar-expand-lg">
-      <div className="container-fluid">
-        <a className="navbar-brand text-light" href="Home"style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'40px'}}>NETFLIX</a>
+    <nav className="navbar navbar-expand-lg sticky-top">
+      <div className="container-fluid" >
+        <a className="navbar-brand text-light" href="Home"style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'40px',fontWeight:'700'}}>NETFLIX</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

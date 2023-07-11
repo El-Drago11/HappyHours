@@ -1,6 +1,7 @@
 import React from "react";
 import "../CSS/SlideFull.css";
 import {useStateValue} from "./StateProvider" 
+import { Margin } from "@mui/icons-material";
 
 const SlideFull = (props) => {
   const [{basket}, dispatch] = useStateValue();
@@ -17,9 +18,9 @@ const SlideFull = (props) => {
   }
   return (
     <>
-      <div className="container-fluid font-monospace" id="fadebottom" style={{display:'flex',flexDirection:'row',height:'548px', backgroundImage:`url(${props.image})`,backgroundPosition:"center center",backgroundSize:"cover",objectFit:'contain'}}>
-          <div className="container text-light justify-content-end" style={{width:'50%',marginLeft:'50%'}}>
-            <div className="container"  style={{ height:"190px" ,}}>
+      <div className="container-fluid font-monospace img-fluid" id="fadebottom" style={{display:'flex',flexDirection:'row',height:'548px', backgroundImage:`url(${props.image})`,backgroundSize:"cover",objectFit:'contain'}}>
+          <div className="container-fluid text-light">
+            <div className="container-fluid" >
               <h1 className=" my-md-5 text-light px-1 text-uppercase" style={{fontSize:'50px'}}>
                 <b>{props.title}</b>
               </h1>
@@ -31,8 +32,8 @@ const SlideFull = (props) => {
                   More Info
                 </a>       
               </div>
-              <h5 className=" text-light my-md-5 px-1">
-                <b>{props.summary.slice(0,200)}...</b>
+              <h5 className="text-light my-md-5 px-1" style={{overflow: 'hidden',textOverflow: 'ellipsis',width:'50%'}}>
+                <b>{props.summary.slice(0,300)}...</b>
               </h5>
             </div>
           </div>

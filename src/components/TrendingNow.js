@@ -3,6 +3,7 @@ import React, { useEffect, useState}from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {useStateValue} from "./StateProvider" 
+import '../CSS/Hover.css'
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -68,12 +69,12 @@ const TrendingNow = () => {
   return (
     <>
         <div className='container-fluid mb-md-2 my-md-3 mx-md-3'>
-          <Carousel swipeable={false} draggable={false}responsive={responsive}ssr={true}infinite={true}autoPlay={true}
+          <Carousel swipeable={true} draggable={true}responsive={responsive}ssr={true}infinite={true}autoPlay={true}
             autoPlaySpeed={3000} keyBoardControl={true} showArrows={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
               {data.map((value)=>{
                 return(
                     <>
-                    <a className="carousel mb-md-3 mx-md-5" id='item' onClick={()=>getCard(value)}href='CardData' >
+                    <a className="carousel mb-md-3 mx-md-5" onClick={()=>getCard(value)}href='CardData' >
                         <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3 mx-md-5" alt="..."/>
                     </a>
                 </>
