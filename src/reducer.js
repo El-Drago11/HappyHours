@@ -7,9 +7,9 @@ const reducer = (state,action)=>{
     switch(action.type){
         case 'Card_Click': 
             return {
-                ...state,
-                basket: [ action.item],
-            }
+                // ...state,
+                basket: [action.item],
+            };
         default : 
             return state;
     }

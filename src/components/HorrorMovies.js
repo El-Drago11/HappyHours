@@ -2,11 +2,30 @@ import React, { useEffect, useState }from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../CSS/Hover.css'
+import { Link } from 'react-router-dom';
+import {useStateValue} from "./StateProvider" 
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 const HorrorMovies = (props) => {
 
   const [data, getData] = useState([])
+
+  const [{basket}, dispatch] = useStateValue();
+  console.log(basket)
+
+  const getCard = (value)=>{
+    dispatch({
+      type:"Card_Click",
+      
+      // transfering the data
+      item:{
+        key:`${value.id}`,
+        image : `${base_url}${value.poster_path}`,
+        data : `${value.name}`,
+        summary : `${value.overview}`,
+      }
+    })
+  }
   
   const url= 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=27'
 
@@ -56,12 +75,12 @@ const HorrorMovies = (props) => {
       autoPlaySpeed={3000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
         {data.map((value)=>{
         return(
-        <>
-            <div className="carousel mb-md-3 mx-md-3" id='card'>
+        <div  className="carousel mb-md-3 mx-md-3" id='card'>
+            <Link to="/CardData" onClick={()=>getCard(value)}>
                 <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
                 <p className="card-title mb-md-5 my-md-2 text-light font-monospace">{value.name}</p>
-            </div>
-        </>
+            </Link>
+        </div>
         );
     })}
       </Carousel>

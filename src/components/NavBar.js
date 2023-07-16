@@ -24,7 +24,7 @@ const NavBar = () => {
             <button className="btn btn-outline-success" type="submit">search</button>
           </form>
           <button type="button" href='notify' className=" mx-md-3 text-light bg-dark" style={{border:'none', textDecoration:'none'}}><span className='position-relative'><CircleNotificationsIcon/><span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">99+<span className="visually-hidden">unread messages</span></span></span></button>
-          <button type="button" className="btn btn-danger mx-md-1">Sign-Up {basket?.length}</button>
+          <button type="button" className="btn btn-danger mx-md-1">Sign-Up </button>
         </div>
       </div>
     </nav>

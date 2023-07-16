@@ -3,6 +3,7 @@ import React, { useEffect, useState}from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import {useStateValue} from "./StateProvider" 
+import { Link } from 'react-router-dom';
 import '../CSS/Hover.css'
 
 const base_url = "https://image.tmdb.org/t/p/original/"
@@ -18,7 +19,10 @@ const TrendingNow = () => {
       
       // transfering the data
       item:{
-        image : `${base_url}${value.poster_path}`
+        key:`${value.id}`,
+        image : `${base_url}${value.poster_path}`,
+        data : `${value.name}`,
+        summary : `${value.overview}`,
       }
     })
   }
@@ -73,11 +77,11 @@ const TrendingNow = () => {
             autoPlaySpeed={3000} keyBoardControl={true} showArrows={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
               {data.map((value)=>{
                 return(
-                    <>
-                    <a className="carousel mb-md-3 mx-md-5" onClick={()=>getCard(value)}href='CardData' >
-                        <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3 mx-md-5" alt="..."/>
-                    </a>
-                </>
+                  <div  className="carousel mb-md-3 mx-md-3" id='card'>
+                    <Link to="/CardData" onClick={()=>getCard(value)}>
+                        <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
+                    </Link>
+                  </div>
                 )
               })}
           </Carousel>

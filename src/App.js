@@ -49,7 +49,7 @@ const App = () => {
     slidesToSlide: 1 // optional, default to 1.
     }
   };
- 
+
   useEffect(()=>{
     fetchApi();
      // eslint-disable-next-line
@@ -73,7 +73,7 @@ const App = () => {
                           })}
                       </Carousel>
                     </div> 
-                    <div className="container-fluid  my-md-5" id='MoreImage'>
+                    <div className="container-fluid my-md-5" id='MoreImage'>
                       <h1 className='text-uppercase fw-bold text-light font-monospace text-start mb-md-4 mx-md-5'>Trending Now </h1>
                       <TrendingNow/>
                     </div>
@@ -102,15 +102,14 @@ const App = () => {
                       <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Documentry</h1>
                         <Documentry/>
                     </div>
-
-                    <div  className="container-fluid my-md-3" id='Footer'>
-                        <Footer/>
-                    </div>
                   </>}>
               </Route> 
               {/* Getting Card details clicked By user*/}
               <Route exact path='/CardData' element={<CardData/>}></Route>
         </Routes>
+        <div  className="container-fluid my-md-3" id='Footer'>
+          <Footer/>
+        </div>
       </Router>
   </>
   )
