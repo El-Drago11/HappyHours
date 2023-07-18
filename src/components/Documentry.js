@@ -23,7 +23,8 @@ const Documentry = (props) => {
         image : `${base_url}${value.poster_path}`,
         data : `${value.name}`,
         summary : `${value.overview}`,
-      }
+      },
+      data:data
     })
   }
   
@@ -70,13 +71,13 @@ const Documentry = (props) => {
         }
       };
   return (
-    <div className='container-fluid mb-md-2 my-md-3' >
+    <div className='container-fluid mb-md-1 my-md-1' >
     <Carousel swipeable={true} draggable={true} responsive={responsive}ssr={true}infinite={true}autoPlay={true}
       autoPlaySpeed={3000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
         {data.map((value)=>{
         return(
           <div  className="carousel mb-md-3 mx-md-3" id='card'>
-          <Link to="/CardData" onClick={()=>getCard(value)}>
+          <Link to="/CardData" onClick={()=>getCard(value,data)}>
               <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
               <p className="card-title mb-md-5 my-md-2 text-light font-monospace">{value.name}</p>
           </Link>

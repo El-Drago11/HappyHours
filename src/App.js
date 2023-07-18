@@ -74,32 +74,32 @@ const App = () => {
                       </Carousel>
                     </div> 
                     <div className="container-fluid my-md-5" id='MoreImage'>
-                      <h1 className='text-uppercase fw-bold text-light font-monospace text-start mb-md-4 mx-md-5'>Trending Now </h1>
+                      <h2 className='text-uppercase fw-bold text-light font-monospace text-start mb-md-4 mx-md-5'>Trending Now </h2>
                       <TrendingNow/>
                     </div>
 
                     <div  className="container-fluid my-md-5" id='SciFi'>
-                      <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Sci-Fi</h1>
+                      <h2 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Sci-Fi</h2>
                         <SciFi/>
                     </div>
 
                     <div  className="container-fluid my-md-3" id='SciFi'>
-                      <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Comedy</h1>
+                      <h2 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Comedy</h2>
                         <Comedy/>
                     </div>
 
                     <div  className="container-fluid my-md-3" id='SciFi'>
-                      <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Horror</h1>
+                      <h2 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Horror</h2>
                         <HorrorMovies/>
                     </div>
 
                     <div  className="container-fluid my-md-3" id='SciFi'>
-                      <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Romance</h1>
+                      <h2 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Romance</h2>
                         <Romance/>
                     </div>
 
                     <div  className="container-fluid my-md-3" id='SciFi'>
-                      <h1 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Documentry</h1>
+                      <h2 className='text-uppercase fw-bold font-monospace text-light text-start mb-md-4 mx-md-5'>Documentry</h2>
                         <Documentry/>
                     </div>
                   </>}>

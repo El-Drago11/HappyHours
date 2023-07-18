@@ -1,5 +1,6 @@
 export const initalState = {
-    basket:[{image:"rahul"}]
+    basket:[{image:"rahul"}],
+    genre : [{dbs:"123"}]
 }; 
 
 const reducer = (state,action)=>{
@@ -9,6 +10,7 @@ const reducer = (state,action)=>{
             return {
                 // ...state,
                 basket: [action.item],
+                genre : [action.data]
             };
         default : 
             return state;
