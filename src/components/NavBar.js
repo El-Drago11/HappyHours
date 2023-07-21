@@ -39,7 +39,7 @@ const NavBar = () => {
           :<button type="button" className="btn btn-danger mx-md-1" onClick={()=>loginWithRedirect().then(window.location.href = "/Home")}>LogIn</button>
           }
           {isAuthenticated?
-          <img src={user.picture} height='40px' width='40px'/>
+          <img src={user.picture} height='40px' width='40px' alt='err'/>
           :''} 
         </div>
       </div>
