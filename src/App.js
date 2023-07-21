@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import "./App.css";
 
 import NavBar from './components/NavBar';
+import Landing from './components/Landing';
 import CardData from './components/CardData';
 import SlideFull from './components/SlideFull';
 import TrendingNow from './components/TrendingNow';
@@ -61,7 +62,8 @@ const App = () => {
           <NavBar/>
         </div>
         <Routes>
-              <Route exact path='/' element={
+              <Route exact path='/' element={<Landing/>}></Route>
+              <Route exact path='/Home' element={
                 <>
                    <div className='container-fluid my-md-3' style={{height: '150%'}}>
                       <Carousel swipeable={true} draggable={true}responsive={responsive1}ssr={true}infinite={true}autoPlay={true}
