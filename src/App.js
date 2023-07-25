@@ -67,7 +67,7 @@ const App = () => {
                 <>
                    <div className='container-fluid my-md-3' style={{height: '150%'}}>
                       <Carousel swipeable={true} draggable={true}responsive={responsive1}ssr={true}infinite={true}autoPlay={true}
-                      autoPlaySpeed={3000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} showArrows={false} removeArrowOnDeviceType={["tablet", "mobile","desktop"]} >
+                      autoPlaySpeed={2000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} showArrows={false} removeArrowOnDeviceType={["tablet", "mobile","desktop"]} >
                           {data.map((value)=>{
                             return(
                               <SlideFull  key={value.id} image={`${base_url}${value.poster_path}`} title={value.name} summary={value.overview} release={value.first_air_date} />

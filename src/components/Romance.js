@@ -4,11 +4,14 @@ import 'react-multi-carousel/lib/styles.css';
 import {useStateValue} from "./StateProvider" 
 import { Link } from 'react-router-dom';
 import '../CSS/Hover.css'
+import Loading from './Loading';
+import { SkeletonTheme } from 'react-loading-skeleton';
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 const Romance = (props) => {
 
   const [data, getData] = useState([])
+  const [getLoad, loading] = useState(true)
 
   const [{basket}, dispatch] = useStateValue();
   console.log(basket)
@@ -35,7 +38,7 @@ const Romance = (props) => {
           const response = await fetch(url);
           const result = await response.json();
           getData(result.results)
-          console.log(result.results)
+          loading(false)
          
       } catch (error) {
           console.error(error);
@@ -71,21 +74,29 @@ const Romance = (props) => {
         }
       };
   return (
+    <>
     <div className='container-fluid mb-md-1 my-md-1'>
-    <Carousel swipeable={true} draggable={true} responsive={responsive}ssr={true}infinite={true}autoPlay={true}
-      autoPlaySpeed={3000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
-        {data.map((value)=>{
-        return(
-          <div  className="carousel mb-md-3 mx-md-3" id='card'>
-          <Link to="/CardData" onClick={()=>getCard(value,data)}>
-              <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
-              <p className="card-title mb-md-5 my-md-2 text-light font-monospace">{value.name}</p>
-          </Link>
+      <SkeletonTheme highlightColor='rgb(115, 115, 123)'>
+      {getLoad ?<div style={{display: 'flex'}}><Loading/> <Loading/> <Loading/> <Loading/>  <Loading/></div>
+      :<Carousel swipeable={true} draggable={true} responsive={responsive}ssr={true}infinite={true}autoPlay={true}
+          autoPlaySpeed={3000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
+            {data.map((value)=>{
+              return(
+                <div  className="carousel mb-md-3 mx-md-3" id='card'>
+                  <Link to="/CardData" onClick={()=>getCard(value,data)}>
+                      <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
+                      <p className="card-title mb-md-5 my-md-2 text-dark font-monospace"></p>
+                  </Link>
+                </div>
+
+
+              );
+            })}
+        </Carousel>
+      }
+      </SkeletonTheme>
       </div>
-        );
-    })}
-      </Carousel>
-    </div>
+  </>
   )
 }
 
