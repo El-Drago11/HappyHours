@@ -46,7 +46,9 @@ const HorrorMovies = (props) => {
   }
  
   useEffect(()=>{
-    fetchApi();
+    setTimeout(()=>{
+      fetchApi();
+    },2000)
      // eslint-disable-next-line
   },[])
 
