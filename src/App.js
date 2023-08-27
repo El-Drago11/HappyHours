@@ -107,7 +107,7 @@ const App = () => {
                   </>}>
               </Route> 
               {/* Getting Card details clicked By user*/}
-              <Route exact path='/CardData' element={<CardData/>}></Route>
+              <Route path='/Home/:CardData' element={<CardData/>}></Route>
         </Routes>
         <div  className="container-fluid my-md-3" id='Footer'>
           <Footer/>

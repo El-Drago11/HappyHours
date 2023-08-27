@@ -26,10 +26,6 @@ const NavBar = () => {
             </li>
             :''}  
           </ul> 
-          <form className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button className="btn btn-outline-success" type="submit">search</button>
-          </form>
           {isAuthenticated?
           <button type="button" href='notify' className=" mx-md-3 text-light bg-dark" style={{border:'none'}}><span className='position-relative'><CircleNotificationsIcon/><span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">9+<span className="visually-hidden">unread messages</span></span></span></button>  
           :''} 

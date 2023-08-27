@@ -85,7 +85,7 @@ const Comedy = () => {
               {data.map((value)=>{
                 return(
                   <div  className="carousel mb-md-3 mx-md-3" id='card'>
-                    <Link to="/CardData" onClick={()=>getCard(value,data)}>
+                    <Link to={"/Home/"+ (value.name || value.genre_ids[1] || value.genre_ids[0]) } onClick={()=>getCard(value,data)}>
                         <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3" alt="..."/>
                         <p className="card-title mb-md-5 my-md-2 text-dark font-monospace"></p>
                     </Link>
