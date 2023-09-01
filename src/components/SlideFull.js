@@ -27,8 +27,8 @@ const SlideFull = (props) => {
                 <b>{props.title}</b>
               </h1>
               <div className="button-group" style={{ height:'auto'}}>
-                <Link to="/CardData" onClick={()=>getCard()}><button type="button" className="btn btn-danger mx-md-2 "> Play</button></Link>
-                <Link to="/CardData"  type="button" className="btn btn-info mx-md-2 " href="CardData.js" onClick={()=>getCard()}>
+                <Link to={"/Home/"+props.title || props.key} onClick={()=>getCard()}><button type="button" className="btn btn-danger mx-md-2 "> Play</button></Link>
+                <Link to={"/Home/"+props.title || props.key}  type="button" className="btn btn-info mx-md-2 " href="CardData.js" onClick={()=>getCard()}>
                   More Info
                 </Link>       
               </div>
