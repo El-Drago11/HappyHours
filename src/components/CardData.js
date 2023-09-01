@@ -40,7 +40,7 @@ const CardData = () => {
             )
         })}
         <div className='row mx-md-2' style={{display:'flex'}}>
-        <h1 className="text-light mb-4"><b>Similar Genre</b></h1>
+        <h1 className="text-light mb-4"><b>{genre[0]?"Similar Genre":''}</b></h1>
             {genre[0]?.map((data)=>{
             return(
               <div className="col-md-2 my-4">
