@@ -1,20 +1,16 @@
 import React from "react";
 import "../CSS/SlideFull.css";
-import {useStateValue} from "./StateProvider" 
 import { Link } from "react-router-dom";
 
-const SlideFull = (props) => {
-  const [{basket}, dispatch] = useStateValue();
-  console.log(basket)
+import { useDispatch } from "react-redux";
+import { cardClick } from "../store/cartSlice";
 
-  const getCard = ()=>{
-    dispatch({
-      type:"Card_Click",
-      // transfering the data
-      item:{
-        image : props.image
-      }
-    })
+const SlideFull = (props) => {
+
+  const storeDispatch = useDispatch();
+
+  const getCard = (value)=>{
+    storeDispatch(cardClick(value))
   }
 
 
@@ -27,8 +23,8 @@ const SlideFull = (props) => {
                 <b>{props.title}</b>
               </h1>
               <div className="button-group" style={{ height:'auto'}}>
-                <Link to={"/Home/"+props.title || props.key} onClick={()=>getCard()}><button type="button" className="btn btn-danger mx-md-2 "> Play</button></Link>
-                <Link to={"/Home/"+props.title || props.key}  type="button" className="btn btn-info mx-md-2 " href="CardData.js" onClick={()=>getCard()}>
+                <Link to={"/Home/"+props.title || props.key} onClick={()=>getCard(props.value)}><button type="button" className="btn btn-danger mx-md-2 "> Play</button></Link>
+                <Link to={"/Home/"+props.title || props.key}  type="button" className="btn btn-info mx-md-2 " href="CardData.js" onClick={()=>getCard(props.value)}>
                   More Info
                 </Link>       
               </div>

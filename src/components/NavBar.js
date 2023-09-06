@@ -1,15 +1,20 @@
 import React from 'react'
-import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
-import { useStateValue } from './StateProvider';
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import { Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+
+// useSelector is used for suscribing the data from the store;
+import { useSelector } from 'react-redux';
+
 
 const NavBar = () => {
   // Auth0 built in function
   const {loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
 
-  const[{basket}] = useStateValue();
-  console.log(basket)
+  // Subscribing to cart item from store
+  const cartItem = useSelector((store)=>store.cart.items)
+  console.log(cartItem)
+
   return (
   <div>
     <nav className="navbar navbar-expand-lg sticky-top"style={{lineHeight:'3rem'}}>
@@ -27,7 +32,7 @@ const NavBar = () => {
             :''}  
           </ul> 
           {isAuthenticated?
-          <button type="button" href='notify' className=" mx-md-3 text-light bg-dark" style={{border:'none'}}><span className='position-relative'><CircleNotificationsIcon/><span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">9+<span className="visually-hidden">unread messages</span></span></span></button>  
+          <Link to="/Home/WatchLater" button type="button" className=" mx-md-3 text-light bg-dark" style={{border:'none',objectFit:'contain',mixBlendMode:'color-burn'}}><span className='position-relative p-2'><WatchLaterIcon/><span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{cartItem.length}<span className="visually-hidden">WatchLater</span></span></span></Link>  
           :''} 
           {
           //user isAuthenticated(when user has been loged-in) than show LogOut button else if user not Authenticated than show login button
