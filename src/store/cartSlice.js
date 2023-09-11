@@ -5,7 +5,8 @@ const cartSlice = createSlice ({
     initialState : {
         items : [],
         basket:[],
-        genre:[]
+        genre:[],
+        user:[],
     },
     reducers : {
         addItems : (state, action)=>{
@@ -25,9 +26,15 @@ const cartSlice = createSlice ({
         cardGenre : (state, action)=>{
             state.genre.length=0;
             state.genre.push(action.payload)
-        }
+        },
+        addUser : (state,action)=>{
+            state.user.push(action.payload)
+        },
+        removeUser : (state,action)=>{
+            state.user.length =0;
+        },
     }
 })
 
-export const {addItems,removeItem,emptyCart,cardClick,cardGenre} = cartSlice.actions;
+export const {addItems,removeItem,emptyCart,cardClick,cardGenre,addUser,removeUser,userStatus} = cartSlice.actions;
 export default cartSlice.reducer;

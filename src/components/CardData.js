@@ -48,8 +48,6 @@ const CardData = () => {
                   </Link>
                   <button  type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle p-2 my-md-3" onClick={()=>watchLater(data)}>+</button>
                 </div>
-                
-                <button  type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle px-3 my-md-4" onClick={()=>watchLater(data)}>+</button>
               </div>
             );
             })}
