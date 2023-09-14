@@ -8,7 +8,7 @@ const Footer = () => {
             <ul class="nav nav-pills nav-justified" style={{border: '1px solid',paddingTop:'10px'}}>
                 <li class="nav-item">
                     <Link className="navbar-brand text-light" to="Home"style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'40px',fontWeight:'600'}}>HappyHours</Link>
-                    <li class="nav-item my-md-1" style={{display:'flex'}}>
+                    <li class="nav-item my-1" style={{display:'flex'}}>
                         <Link class="nav-link text-light" aria-current="page" to="/Home"><span className="navbar-toggler-icon"><i class="fa-xs bi bi-instagram" style={{fontSize:'1.5rem'}}></i></span></Link>
                         <Link class="nav-link text-light" aria-current="page" to="/Home"><span className="navbar-toggler-icon"><i class="bi bi-github" style={{fontSize:'1.5rem'}}></i></span></Link>
                         <Link class="nav-link text-light" aria-current="page" to="/Home"><span className="navbar-toggler-icon"><i class="bi bi-twitter"  style={{fontSize:'1.5rem'}}></i></span></Link>

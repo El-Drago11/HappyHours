@@ -37,18 +37,16 @@ const CardData = () => {
             </div>
             )
         })}
-        <div className='row mx-md-2' style={{display:'flex' ,flexWrap:'wrap'}}>
-          <h1 className="text-light mb-4"><b>{genre[0]?"Similar Genre":''}</b></h1>
+        <h1 className="text-light mb-4 mx-5"><b>{genre[0]?"Similar Genre":''}</b></h1>
+        <div className='container' style={{display:'flex' ,flexWrap:'wrap'}}>
             {genre[0]?.map((data)=>{
             return(
-              <div className="col-md-2 my-4">
-                <div class="card" id='card' style={{width: "10rem"}}>
+                <div class="card mx-4 my-3" id='card' style={{width: "8rem"}}>
                   <Link to={"/Home/"+ (data?.name ||data?.genre_ids[1] || data?.genre_ids[0] ) } onClick={()=>getCardData(data,genre[0])}>
                     <img src={`${base_url}${data?.poster_path}`}class="card-img-top" alt="..."/>
                   </Link>
-                  <button  type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle p-2 my-md-3" onClick={()=>watchLater(data)}>+</button>
+                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-3" onClick={()=>watchLater(data)}>+</button>
                 </div>
-              </div>
             );
             })}
         </div>

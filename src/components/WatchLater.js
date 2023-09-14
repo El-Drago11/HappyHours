@@ -21,7 +21,7 @@ const clearCard = (data)=>{
       <div className='row mx-md-2' style={{display:'flex' ,flexWrap:'wrap'}}>
             <div className='d-flex justify-content-between my-md-4'>
                 <h2 className="text-light"><b>My Movies</b></h2>
-                <button  type="button" class="btn btn-outline-danger" onClick={()=>clearCart()}>clearCart</button>
+                <button  type="button" class="btn btn-outline-danger btn-sm" onClick={()=>clearCart()}>clearCart</button>
             </div>
             {(cartItem.length===0) ? <h1 className='text-light my-md-5 text-center fst-italic' style={{height:'40vh'}}>No Item To watch !!</h1> : '' }
             {cartItem?.map((data)=>{

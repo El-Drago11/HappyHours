@@ -72,29 +72,25 @@ const Landing = () => {
       });
   }
 
-
-
-
   return (
     <>
-    <div className='container-fluid p-2' id='logo'><h1 className='text-danger'style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'2.5rem',fontWeight:'500'}}>HappyHours</h1></div>
-    {/* <div className="navbar-brand text-light"style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'2.5rem',fontWeight:'500'}}>NETFLIX</div> */}
     <div className='container-fluid' id='Main' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <div className='col-md-6'>
+    <div className='container-fluid position-absolute top-0 start-0 bg-black bg-opacity-50' id='logo'><h1 className='text-danger 'style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'3rem',fontWeight:'500'}}>HappyHours</h1></div>
+      <div className='container' style={{width:'25rem'}}>
         {/* e.preventDefault => it will prevent the form from rendering or submiting */}
-        <form className='col-md-6 mx-auto text-light bg-black bg-opacity-75 p-md-5' onSubmit={(e) => e.preventDefault()}>
-          <h2 className='mb-md-4'><b>{isSign ? "SIGN-IN" : "Sign-UP"}</b></h2>
+        <form className='container mx-auto text-light bg-black bg-opacity-75 p-5' onSubmit={(e) => e.preventDefault()}>
+          <h2 className='mb-4'><b>{isSign ? "SIGN-IN" : "Sign-UP"}</b></h2>
           <p className='text-danger fs-4'>{errMessage}</p>
-          <div className="mb-3 p-md-2">
+          <div className="mb-3 p-2">
             <input type="email" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" ref={email} />
           </div>
-          {!isSign && <div className="mb-3 p-md-2">
+          {!isSign && <div className="mb-3 p-2">
             <input type="Phone Number" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputPassword1" placeholder='Phone Number' ref={phoneNumber} />
           </div>}
-          {!isSign && <div className="mb-3 p-md-2">
+          {!isSign && <div className="mb-3 p-2">
             <input type="name" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputPassword1" placeholder='Full Name' ref={fullname} />
           </div>}
-          <div className="mb-3 p-md-2">
+          <div className="mb-3 p-2">
             <input type="password" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputPassword1" placeholder='Password' ref={password} />
           </div>
           {isSign && <div className="mb-3 form-check">
@@ -103,7 +99,7 @@ const Landing = () => {
           </div>}
           {isSign ? <button className="btn btn-danger" onClick={() => validation()}>SIGN-IN</button> : <button className='btn btn-danger' onClick={() => userDataValid()}>SIGN-UP</button>}
 
-          <div className="my-md-3  p-md-2">
+          <div className="my-3  p-2">
             <p className='text-light'>{isSign ? "New to Netflix ?  " : "Already a Registered ?  "} <span className='text-light' role='button' onClick={() => formSign()}>{isSign ? "  Sign up Now" : " Login Now "}</span></p>
           </div>
         </form>

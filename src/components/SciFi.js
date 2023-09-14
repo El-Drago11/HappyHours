@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 
 import { addItems,cardClick,cardGenre } from '../store/cartSlice';
 import { useDispatch } from 'react-redux';
+import { baseUrl } from '../utils/constant';
 
-const base_url = "https://image.tmdb.org/t/p/original/"
+const base_url = baseUrl
 const SciFi = (props) => {
 
 const storeDispatch = useDispatch();
@@ -79,11 +80,11 @@ const getCard = (value,data) => {
           autoPlaySpeed={2000} keyBoardControl={true} customTransition="all .5"transitionDuration={500} containerClass="carousel-container" removeArrowOnDeviceType={["tablet", "mobile"]} dotListClass="custom-dot-list-style"itemClass="carousel-item-padding-40-px">
             {data.map((value)=>{
               return(
-                <div  className="carousel mb-md-3 mx-md-3 my-md-2 rounded" id='card'>
+                <div  className="carousel mb-3 mx-3 my-2 rounded" id='card'>
                   <Link to={"/Home/"+ (value.name ||value.genre_ids[1] || value.genre_ids[0]) } onClick={()=>getCard(value,data)}>
                       <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3 rounded" alt="..."/>
                   </Link>
-                  <button  type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle px-2 my-md-4" onClick={()=>watchLater(value)}>+</button>
+                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-4" onClick={()=>watchLater(value)}>+</button>
                 </div>
 
 
