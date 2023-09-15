@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div className='container-fluid'>
         <nav className="container-fluid p-3" >
             <ul class="nav nav-pills nav-justified" style={{border: '1px solid',paddingTop:'10px'}}>
                 <li class="nav-item">

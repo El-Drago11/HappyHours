@@ -12,11 +12,11 @@ const GptSearchBar = () => {
 
   const addSearchText = useRef("");
 
-  const gptQuery = "Act as a movie recommended system and suggest some movies for the query" + addSearchText.current.value+"only give me names of five movies  and are comma seprated like the example result given ahead. Example result: KGF , Gadar, 3Idiot, BossBaby, SpiderMan "
+  const gptQuery = "Act as a movie recommended system and suggest some movies for the query" + addSearchText.current.value+". Only give me names of movies that are related to that movie genre ,comma seprated like the example Result given ahead. Example result: Golmaal , Gadar, 3Idiot, Sholay , Amar Akbar ANTHONY"
 
   //----> Search movie in tmbd database
   const searchMovieTMBD = async(movie)=>{
-    const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&language=en-US&page=1", options)
+    const data = await fetch("https://api.themoviedb.org/3/search/movie?query="+movie+"&include_adult=false&page=1", options)
     const json = await data.json();
     return json.results;
   }

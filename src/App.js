@@ -57,7 +57,14 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={<Landing />}></Route>
+          <Route exact path='/' element={
+            <>
+              <Landing />
+              <div className="container-fluid">
+                <Footer />
+              </div>
+            </>
+        }></Route>
           <Route exact path='/Home' element={
             <>
               <div className='container-fluid'>
@@ -102,6 +109,10 @@ const App = () => {
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Documentry</h2>
                 <SciFi url={documentryApi} />
               </div>
+
+              <div className="container-fluid">
+                <Footer />
+              </div>
             </>}
           >
           </Route>
@@ -112,6 +123,9 @@ const App = () => {
                   <NavBar />
                 </div>
                 <CardData />
+              <div className="container-fluid">
+                <Footer />
+              </div>
               </>
             }>
           </Route>
@@ -121,22 +135,22 @@ const App = () => {
                 <NavBar />
               </div>
                 <WatchLater />
+              <div className="container-fluid">
+                <Footer />
+              </div>
               </>
             }>
           </Route>
           <Route path='/Home/Gpt' element={
               <>
-              <div className='container-fluid'>
-                <NavBar />
-              </div>
+                <div className='container-fluid'>
+                  <NavBar />
+                </div>
                 <Gpt/>
               </>
             }>
           </Route>
         </Routes>
-        <div className="container-fluid" id='Footer'>
-          <Footer />
-        </div>
       </Router>
     </>
   )
