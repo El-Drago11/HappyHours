@@ -1,16 +1,18 @@
-export const trendingApi = 'https://api.themoviedb.org/3/trending/all/week?api_key=61921c21ceb0e087ac30d788cd569b79&language=en-US';
+const tmbdApi = process.env.React_APP_TMBD_API_Key
 
-export const sciApi = 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=28';
+export const trendingApi = `https://api.themoviedb.org/3/trending/all/week?api_key=${tmbdApi}&language=en-US`;
 
-export const comedyApi = 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=35';
+export const sciApi = `https://api.themoviedb.org/3/discover/movie?api_key=${tmbdApi}&with_genres=28`;
 
-export const horrorApi = 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=27';
+export const comedyApi = `https://api.themoviedb.org/3/discover/movie?api_key=${tmbdApi}&with_genres=35`;
 
-export const romanceApi = 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=10749';
+export const horrorApi = `https://api.themoviedb.org/3/discover/movie?api_key=${tmbdApi}&with_genres=27`;
 
-export const documentryApi = 'https://api.themoviedb.org/3/discover/movie?api_key=61921c21ceb0e087ac30d788cd569b79&with_genres=99';
+export const romanceApi = `https://api.themoviedb.org/3/discover/movie?api_key=${tmbdApi}&with_genres=10749`;
 
-export const urlApi = 'https://api.themoviedb.org/3/discover/tv?api_key=61921c21ceb0e087ac30d788cd569b79&with_networks=213'
+export const documentryApi = `https://api.themoviedb.org/3/discover/movie?api_key=${tmbdApi}&with_genres=99`;
+
+export const urlApi = `https://api.themoviedb.org/3/discover/tv?api_key=${tmbdApi}&with_networks=213`
 
 export const baseUrl  = "https://image.tmdb.org/t/p/original/"
 
@@ -18,7 +20,7 @@ export const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: `Bearer ${process.env.REACT_APP_TMBD_Key}`
+    Authorization: `Bearer ${process.env.React_APP_TMBD_Key}`
   }
 };
 

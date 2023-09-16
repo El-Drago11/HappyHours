@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import WatchLater from './components/WatchLater';
 import { comedyApi, documentryApi, horrorApi, romanceApi, sciApi, trendingApi, urlApi } from './utils/constant';
 import Gpt from './components/Gpt';
+import VedioPlay from './components/VedioPlay';
 
 const base_url = "https://image.tmdb.org/t/p/original/" //-->PosterPath
 
@@ -25,7 +26,7 @@ const App = () => {
       const response = await fetch(url);
       const result = await response.json();
       getData(result.results)
-      console.log(result.results)
+      // console.log(result.results)
     } catch (error) {
       console.error(error);
     }
@@ -70,17 +71,20 @@ const App = () => {
               <div className='container-fluid'>
                 <NavBar />
               </div>
-              <div className='container-fluid my-3' id='SingleItemCrousel'>
-                <Carousel swipeable={true} draggable={true} responsive={responsive1} ssr={true} infinite={true} autoPlay={false}
-                  autoPlaySpeed={1000} keyBoardControl={true} customTransition="all .5" transitionDuration={1000} showArrows={true} removeArrowOnDeviceType={["tablet", "mobile", "desktop"]} >
-                  {data.map((value) => {
-                    return (
-                      <SlideFull key={value.id} image={`${base_url}${value.poster_path}`} title={value.name} summary={value.overview} release={value.first_air_date} value={value}  trailerId = {value.id}/>
-                    )
-                  })}
-                </Carousel>
+              <div className='container-fluid position-relative d-flex'>
+              <VedioPlay vedioId = {550}/>
+                <div className='container-fluid position-absolute top-0 start-0 my-sm-3 overflow-hidden font-monospace p-md-5 p-5 my-md-1'>
+                  <Carousel swipeable={true} draggable={true} responsive={responsive1} ssr={true} infinite={true} autoPlay={false}
+                    autoPlaySpeed={1000} keyBoardControl={true} customTransition="all .5" transitionDuration={1000} showArrows={true} removeArrowOnDeviceType={["tablet", "mobile", "desktop"]} >
+                    {data.map((value) => {
+                      return (
+                        <SlideFull key={value.id} image={`${base_url}${value.poster_path}`} title={value.name} summary={value.overview} release={value.first_air_date} value={value}  trailerId = {value.id}/>
+                      )
+                    })}
+                  </Carousel>
+                </div>
               </div>
-              <div className="container-fluid my-1" id='MoreImage'>
+              <div className="container-fluid  my-md-5" id='MoreImage'>
                 <h2 className='text-uppercase fw-bold text-light fst-italic text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Trending Now </h2>
                 <SciFi url={trendingApi} />
               </div>
