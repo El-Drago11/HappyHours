@@ -1,22 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const cartSlice = createSlice ({
     name : 'cart',
     initialState : {
-        items : [],
-        basket:[],
+        items : localStorage.getItem("item")?JSON.parse(localStorage.getItem("item")):[],
+        basket:localStorage.getItem("basket")?JSON.parse(localStorage.getItem("basket")):[],
         genre:[],
         user:[],
     },
     reducers : {
         addItems : (state, action)=>{
-            state.items.push(action.payload);
+            const cardId = action.payload.id;
+            const cardIsPresent = state.items.findIndex((item)=>(item.id===cardId));
+            if(cardIsPresent>=0){
+                toast.error("Movie already added")
+            }else{
+                state.items.push(action.payload);
+                localStorage.setItem("item",JSON.stringify(state.items))
+                toast.success("Movie added")
+            }
         },
         removeItem : (state, action)=>{
-            state.items.pop();
+            const cardId = action.payload.id;
+            const cardIndex = state.items.findIndex((item)=>(item.id===cardId));
+            state.items.splice(cardIndex,1);
+            localStorage.setItem("item",JSON.stringify(state.items))
+            toast.success("Movie removed !!")
         },
         emptyCart : (state,action)=>{
             state.items.length = 0;
+            localStorage.setItem("item",JSON.stringify(state.items))
         },
         cardClick : (state,action)=>{
             state.basket.length = 0;

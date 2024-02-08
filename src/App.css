@@ -1,3 +1,25 @@
 body{
     background-color: rgb(19, 19, 25);
 }
+
+@media screen and (min-width:1000px){
+    #TrendingNow{
+        transform: translateY(-10rem);
+        margin-bottom: 5rem;
+    }
+}
+@media screen and (max-width:1000px){
+    #TrendingNow{
+        margin-top: 2rem;
+        transform: translateY(0rem);
+        margin-bottom: 15rem;
+    }
+}
+
+#addCartBtn{
+    visibility: hidden;
+}
+
+#card:hover>#addCartBtn{
+    visibility: visible;
+}

@@ -6,11 +6,9 @@ const VedioPlay = ({ vedioId }) => {
     const trailerVedio = useSelector((store)=>store?.movie?.trailerVedio);
     useTrailer(vedioId);
   return (
-  <div className="ratio ratio-16x9">
+  <div className="ratio ratio-16x9 rounded">
     {/* eslint-disable-next-line */}
-    <iframe src={"https://www.youtube.com/embed/"+trailerVedio?.key+"?autoplay=1&mute=1"} muted
-  autoPlay
-  loop ></iframe>
+    <iframe src={"https://www.youtube.com/embed/"+trailerVedio?.key+"?autoplay=1&mute=1&loop=1"} muted allow="autoplay; encrypted-media"frameBorder="0"></iframe>
   </div>
   )
 };

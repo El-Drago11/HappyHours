@@ -3,9 +3,10 @@ import ReactPlayer from 'react-player'
 import { Link } from 'react-router-dom';
 import vedio  from '../CSS/vedio.mp4'
 import '../CSS/Hover.css'
-
+import '../App.css'
 import { addItems,cardClick,cardGenre } from '../store/cartSlice';
 import { useDispatch ,useSelector} from 'react-redux';
+
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -45,7 +46,7 @@ const CardData = () => {
                   <Link to={"/Home/"+ (data?.name ||data?.genre_ids[1] || data?.genre_ids[0] ) } onClick={()=>getCardData(data,genre[0])}>
                     <img src={`${base_url}${data?.poster_path}`}class="card-img-top" alt="..."/>
                   </Link>
-                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-3" onClick={()=>watchLater(data)}>+</button>
+                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-3" onClick={()=>watchLater(data)} id='addCartBtn'>+</button>
                 </div>
             );
             })}

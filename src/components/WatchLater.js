@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useSelector ,  useDispatch  } from 'react-redux';
 import { removeItem,emptyCart } from '../store/cartSlice';//importing the reducer function
+import { toast } from 'react-toastify';
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -12,6 +13,7 @@ const WatchLater = () => {
 
 const clearCart = ()=>{
   storeDispatch(emptyCart());
+  toast.error("Cart is cleared")
 }
 const clearCard = (data)=>{
     storeDispatch(removeItem(data));

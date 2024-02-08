@@ -8,6 +8,8 @@ import { Auth0Provider } from '@auth0/auth0-react';
 // store provider
 import { Provider } from 'react-redux';
 import appStore from './store/appStore';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +20,7 @@ root.render(
       <Auth0Provider domain="dev-oldde7024exuaje6.us.auth0.com" clientId="MkrzkbtusDs5zeKH1mqoDt273FbotV77"authorizationParams={{redirect_uri: window.location.origin}}>
       {/* Passing the "reducer function and intital state" to StateProvider so that every component can access useReducer() function */}
         <App />
-
+        <ToastContainer/>
     </Auth0Provider>
     
     </Provider>

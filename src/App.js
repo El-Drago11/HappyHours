@@ -71,8 +71,8 @@ const App = () => {
               <div className='container-fluid'>
                 <NavBar />
               </div>
-              <div className='container-fluid position-relative d-flex'>
-              <VedioPlay vedioId = {550}/>
+              <div className='container-fluid position-relative d-flex '>
+                <VedioPlay vedioId = {550}/>
                 <div className='container-fluid position-absolute top-0 start-0 my-sm-3 overflow-hidden font-monospace p-md-5 p-5 my-md-1'>
                   <Carousel swipeable={true} draggable={true} responsive={responsive1} ssr={true} infinite={true} autoPlay={false}
                     autoPlaySpeed={1000} keyBoardControl={true} customTransition="all .5" transitionDuration={1000} showArrows={true} removeArrowOnDeviceType={["tablet", "mobile", "desktop"]} >
@@ -84,33 +84,33 @@ const App = () => {
                   </Carousel>
                 </div>
               </div>
-              <div className="container-fluid  my-md-5" id='MoreImage'>
-                <h2 className='text-uppercase fw-bold text-light fst-italic text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Trending Now </h2>
+              <div className="container-fluid" id='TrendingNow'>
+                <h2 className='text-uppercase fw-bold text-light fst-italic text-start mx-3'style={{fontSize:'1.5rem'}}>Trending Now </h2>
                 <SciFi url={trendingApi} />
               </div>
 
-              <div className="container-fluid" id='SciFi'>
-                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Sci-Fi</h2>
+              <div className="container-fluid mb-5" id='SciFi'>
+                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mx-3'style={{fontSize:'1.5rem',marginTop:'-200px'}}>Sci-Fi</h2>
                 <SciFi url={sciApi} />
               </div>
 
-              <div className="container-fluid my-1" id='SciFi'>
-                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Comedy</h2>
+              <div className="container-fluid my-1 mb-5" id='SciFi'>
+                <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Comedy</h2>
                 <SciFi url={comedyApi} />
               </div>
 
-              <div className="container-fluid my-1" id='SciFi'>
-                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Horror</h2>
+              <div className="container-fluid my-1 mb-5" id='SciFi'>
+                <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Horror</h2>
                 <SciFi url={horrorApi} />
               </div>
 
-              <div className="container-fluid my-1" id='SciFi'>
-                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Romance</h2>
+              <div className="container-fluid my-1 mb-5" id='SciFi'>
+                <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Romance</h2>
                 <SciFi url={romanceApi} />
               </div>
 
               <div className="container-fluid my-1" id='SciFi'>
-                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mb-4 mx-3'style={{fontSize:'1.5rem'}}>Documentry</h2>
+                <h2 className='text-uppercase fw-bold fst-italic text-light text-start mx-3'style={{fontSize:'1.5rem'}}>Documentry</h2>
                 <SciFi url={documentryApi} />
               </div>
 

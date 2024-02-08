@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { addItems,cardClick,cardGenre } from '../store/cartSlice';
 import { useDispatch } from 'react-redux';
 import { baseUrl } from '../utils/constant';
+import '../App.css'
 
 const base_url = baseUrl
 const SciFi = (props) => {
@@ -84,7 +85,7 @@ const getCard = (value,data) => {
                   <Link to={"/Home/"+ (value.name ||value.genre_ids[1] || value.genre_ids[0]) } onClick={()=>getCard(value,data)}>
                       <img src={`${base_url}${value.poster_path}`} className="card-img-top mb-md-3 rounded" alt="..."/>
                   </Link>
-                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-4" onClick={()=>watchLater(value)}>+</button>
+                  <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-4" onClick={()=>watchLater(value)} id='addCartBtn'>+</button>
                 </div>
 
 
