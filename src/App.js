@@ -86,32 +86,32 @@ const App = () => {
               </div>
               <div className="container-fluid" id='TrendingNow'>
                 <h2 className='text-uppercase fw-bold text-light fst-italic text-start mx-3'style={{fontSize:'1.5rem'}}>Trending Now </h2>
-                <SciFi url={trendingApi} />
+                <SciFi url={trendingApi}  title={'TrendingNow'}/>
               </div>
 
               <div className="container-fluid mb-5" id='SciFi'>
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start mx-3'style={{fontSize:'1.5rem',marginTop:'-200px'}}>Sci-Fi</h2>
-                <SciFi url={sciApi} />
+                <SciFi url={sciApi} title={'SciFi'}/>
               </div>
 
               <div className="container-fluid my-1 mb-5" id='SciFi'>
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Comedy</h2>
-                <SciFi url={comedyApi} />
+                <SciFi url={comedyApi} title={'Comedy'}/>
               </div>
 
               <div className="container-fluid my-1 mb-5" id='SciFi'>
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Horror</h2>
-                <SciFi url={horrorApi} />
+                <SciFi url={horrorApi} title={'Horror'}/>
               </div>
 
               <div className="container-fluid my-1 mb-5" id='SciFi'>
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start  mx-3'style={{fontSize:'1.5rem'}}>Romance</h2>
-                <SciFi url={romanceApi} />
+                <SciFi url={romanceApi} title={'Romance'}/>
               </div>
 
               <div className="container-fluid my-1" id='SciFi'>
                 <h2 className='text-uppercase fw-bold fst-italic text-light text-start mx-3'style={{fontSize:'1.5rem'}}>Documentry</h2>
-                <SciFi url={documentryApi} />
+                <SciFi url={documentryApi} title={'Documentry'}/>
               </div>
 
               <div className="container-fluid">

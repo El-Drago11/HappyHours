@@ -10,56 +10,41 @@ import { baseUrl } from '../utils/constant';
 import '../App.css';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useSelector } from 'react-redux';
 
 const base_url = baseUrl;
 
-const SciFi = ({ url }) => {
+const SciFi = ({ url ,title}) => {
   const storeDispatch = useDispatch();
   const [data, getData] = useState([]);
   const [getLoad, loading] = useState(true);
   const [imageLoadStatus, setImageLoadStatus] = useState({});
-  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
 
+  const titledata = useSelector((store)=>store.movie[`${title}_Store`])
+
   useEffect(() => {
-    if (isVisible) {
-      fetchApi();
+    if (url) {
+      if(titledata==null){
+        fetchApi();
+      }else{
+        getData(titledata);
+        loading(false);
+      }
     }
-    // eslint-disable-next-line
-  }, [isVisible]);
+  }, [url]);
 
   const fetchApi = async () => {
     try {
-      const response = await fetch(url);
-      const result = await response.json();
-      getData(result.results);
-      loading(false);
+        const response = await fetch(url);
+        const result = await response.json();
+        getData(result.results);
+        localStorage.setItem(title,JSON.stringify(result.results))
+        loading(false);
     } catch (error) {
       console.error(error);
     }
   };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, []);
 
   const responsive = {
     superLargeDesktop: {

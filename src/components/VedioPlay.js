@@ -8,9 +8,10 @@ const VedioPlay = ({ vedioId }) => {
   return (
   <div className="ratio ratio-16x9 rounded">
     {/* eslint-disable-next-line */}
-    <iframe src={"https://www.youtube.com/embed/"+trailerVedio?.key+"?autoplay=1&mute=1&loop=1"} muted allow="autoplay; encrypted-media"frameBorder="0"></iframe>
+    <iframe src={`https://www.youtube.com/embed/${trailerVedio?.key}?autoplay=1&mute=0&loop=1&playlist=${trailerVedio?.key}`} muted allow="autoplay; encrypted-media"frameBorder="0"></iframe>
   </div>
   )
 };
 
 export default VedioPlay;
+

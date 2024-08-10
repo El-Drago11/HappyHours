@@ -6,7 +6,8 @@ import '../CSS/Hover.css'
 import '../App.css'
 import { addItems,cardClick,cardGenre } from '../store/cartSlice';
 import { useDispatch ,useSelector} from 'react-redux';
-
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -24,6 +25,11 @@ const CardData = () => {
     storeDispatch(cardClick(data));
     storeDispatch(cardGenre(genre))
   }
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
 
   return (

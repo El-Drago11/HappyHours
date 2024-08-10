@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieSlice = createSlice({
     name: "movie",
     initialState:{
-        trendingStore:null,
-        scifiStore:null,
-        comedyStore:null,
-        horrorStore:null,
-        romanceStore:null,
-        documentryStore:null,
+        TrendingNow_Store:localStorage.getItem('TrendingNow') ? JSON.parse(localStorage.getItem('TrendingNow')) : null,
+        SciFi_Store:localStorage.getItem('SciFi') ? JSON.parse(localStorage.getItem('SciFi')) : null,
+        Comedy_Store:localStorage.getItem('Comedy') ? JSON.parse(localStorage.getItem('Comedy')) : null,
+        Horror_Store:localStorage.getItem('Horror') ? JSON.parse(localStorage.getItem('Horror')) : null,
+        Romance_Store:localStorage.getItem('Romance') ? JSON.parse(localStorage.getItem('Romance')) : null,
+        Documentry_Store:localStorage.getItem('Documentry') ? JSON.parse(localStorage.getItem('Documentry')) : null,
         trailerVedio :null
     },
     reducers:{
