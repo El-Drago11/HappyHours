@@ -50,7 +50,7 @@ const CardData = () => {
             return(
                 <div class="card mx-4 my-3" id='card' style={{width: "8rem"}}>
                   <Link to={"/Home/"+ (data?.name ||data?.genre_ids[1] || data?.genre_ids[0] ) } onClick={()=>getCardData(data,genre[0])}>
-                    <img src={`${base_url}${data?.poster_path}`}class="card-img-top" alt="..."/>
+                    <img src={`${base_url}${data?.poster_path}`}class="card-img-top" alt="..." onError={(e) => e.target.closest('.card').classList.add('d-none')} />
                   </Link>
                   <button  type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-3" onClick={()=>watchLater(data)} id='addCartBtn'>+</button>
                 </div>

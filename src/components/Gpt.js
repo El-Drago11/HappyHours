@@ -6,11 +6,13 @@ import { BackImage } from '../utils/constant'
 
 const Gpt = () => {
   return (
-    <div className='container-fluid my-1' style={{height:'100vh', backgroundImage:`url(${BackImage})`,backgroundSize:'cover'}}>
-    <div className='mb-5 p-3'>
-      <GptSearchBar/>
-    </div>
-      <GptMovieSuggestion/>
+    <div className='container-fluid my-1'>
+      <div className='mb-5 p-3'>
+        <GptSearchBar/>
+      </div>
+      <div style={{display:'flex', flexDirection:'row',flexWrap:'wrap',justifyContent:'center',alignItems:'center'}}>
+        <GptMovieSuggestion/>
+      </div>
     </div>
   )
 }

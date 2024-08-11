@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import '../CSS/Hover.css';
-import Loading from './Loading';
+// import Loading from './Loading';
 import { Link } from 'react-router-dom';
 import { addItems, cardClick, cardGenre } from '../store/cartSlice';
 import { useDispatch } from 'react-redux';
