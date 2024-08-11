@@ -100,7 +100,7 @@ const Landing = () => {
           {isSign ? <button className="btn btn-danger" onClick={() => validation()}>SIGN-IN</button> : <button className='btn btn-danger' onClick={() => userDataValid()}>SIGN-UP</button>}
 
           <div className="my-3  p-2">
-            <p className='text-light'>{isSign ? "New to Netflix ?  " : "Already a Registered ?  "} <span className='text-light' role='button' onClick={() => formSign()}>{isSign ? "  Sign up Now" : " Login Now "}</span></p>
+            <p className='text-light'>{isSign ? "New to Happy-Hours ?  " : "Already a Registered ?  "} <span className='text-light' role='button' onClick={() => formSign()}>{isSign ? "  Sign up Now" : " Login Now "}</span></p>
           </div>
         </form>
       </div>
