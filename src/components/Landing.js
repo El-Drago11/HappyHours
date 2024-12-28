@@ -28,7 +28,9 @@ const Landing = () => {
     setErrMessage(message);
 
     //--->step2: check for error
-    if (message) return;// if there is an error message return;
+    if (message){
+      return;
+    } // if there is an error message return;
 
     //--->Step3: Checking into the Database and validate it
     signInWithEmailAndPassword(auth, email.current.value, password.current.value)
