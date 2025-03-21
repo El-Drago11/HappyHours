@@ -12,6 +12,7 @@ const Landing = () => {
   const navigate = useNavigate();
 
   const formSign = () => {
+    setErrMessage('')
     setSign(!isSign)
   }
 
@@ -37,14 +38,10 @@ const Landing = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user)
         navigate('/Home')
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrMessage(errorMessage);
-        console.log(errorCode)
+        setErrMessage('Invalid! Please try Again');
         navigate('/')
       });
   }
@@ -64,13 +61,11 @@ const Landing = () => {
       .then((userCredential) => {//if the user value is stored successfully
         // Signed Up
         const user = userCredential.user;
-        console.log(user)
+        formSign()
       })
       .catch((error) => {//if there occurs an error while storing the value
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setErrMessage(errorMessage);
-        console.log(errorCode);
+        setErrMessage(error.code);
+        console.log(error);
       });
   }
 
@@ -82,7 +77,7 @@ const Landing = () => {
         {/* e.preventDefault => it will prevent the form from rendering or submiting */}
         <form className='container mx-auto text-light bg-black bg-opacity-75 p-5' onSubmit={(e) => e.preventDefault()}>
           <h2 className='mb-4'><b>{isSign ? "SIGN-IN" : "Sign-UP"}</b></h2>
-          <p className='text-danger fs-4'>{errMessage}</p>
+          <p className='text-danger fs-4' style={{textTransform:'capitalize'}}>{errMessage}</p>
           <div className="mb-3 p-2">
             <input type="email" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" ref={email} />
           </div>
