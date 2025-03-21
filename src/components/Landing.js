@@ -5,6 +5,7 @@ import { auth } from '../utils/firebase';// Importing auth from firbase.js file
 import '../CSS/Landing.css';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Landing = () => {
   const [isSign, setSign] = useState(true);
@@ -60,6 +61,7 @@ const Landing = () => {
     createUserWithEmailAndPassword(auth, email.current.value, password.current.value)// SignUp logic
       .then((userCredential) => {//if the user value is stored successfully
         // Signed Up
+        toast.success('Signup Succesfully');
         const user = userCredential.user;
         formSign()
       })
