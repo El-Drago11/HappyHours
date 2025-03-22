@@ -9,11 +9,9 @@ import { toast } from 'react-toastify';
 
 const Landing = () => {
   const [isSign, setSign] = useState(true);
-  const [errMessage, setErrMessage] = useState('');
   const navigate = useNavigate();
 
   const formSign = () => {
-    setErrMessage('')
     setSign(!isSign)
   }
 
@@ -27,7 +25,7 @@ const Landing = () => {
   const validation = () => {
     // //---> step1: validation of data
     const message = checkValidData(email.current.value, password.current.value);
-    setErrMessage(message);
+    toast.error(message);
 
     //--->step2: check for error
     if (message){
@@ -42,7 +40,7 @@ const Landing = () => {
         navigate('/Home')
       })
       .catch((error) => {
-        setErrMessage('Invalid! Please try Again');
+        toast.error('Invalid! Please try Again');
         navigate('/')
       });
   }
@@ -52,7 +50,7 @@ const Landing = () => {
 
     //---> step1: validation of data
     const message = checkUserData(email.current.value, phoneNumber.current.value, fullname.current.value, password.current.value);
-    setErrMessage(message);
+    toast.error(message);
 
     //--->step2: check for error
     if (message) return;// if there is an error message return;
@@ -66,8 +64,7 @@ const Landing = () => {
         formSign()
       })
       .catch((error) => {//if there occurs an error while storing the value
-        setErrMessage(error.code);
-        console.log(error);
+        toast.error(error.code);
       });
   }
 
@@ -79,7 +76,6 @@ const Landing = () => {
         {/* e.preventDefault => it will prevent the form from rendering or submiting */}
         <form className='container mx-auto text-light bg-black bg-opacity-75 p-5' onSubmit={(e) => e.preventDefault()}>
           <h2 className='mb-4'><b>{isSign ? "SIGN-IN" : "Sign-UP"}</b></h2>
-          <p className='text-danger fs-4' style={{textTransform:'capitalize'}}>{errMessage}</p>
           <div className="mb-3 p-2">
             <input type="email" className="form-control bg-secondary bg-opacity-80 text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" ref={email} />
           </div>
