@@ -19,17 +19,16 @@ const clearCard = (data)=>{
     storeDispatch(removeItem(data));
   }
   return (
-    <div>
-      <div className='row mx-md-2' style={{display:'flex' ,flexWrap:'wrap'}}>
-            <div className='d-flex justify-content-between my-md-4'>
+      <div className='container-fluid' style={{display:'flex' ,flexWrap:'wrap'}}>
+            <div className='d-flex justify-content-between my-md-4 w-100'>
                 <h2 className="text-light"><b>My Movies</b></h2>
                 <button  type="button" class="btn btn-outline-danger btn-sm" onClick={()=>clearCart()}>clearCart</button>
             </div>
             {(cartItem.length===0) ? <h1 className='text-light my-md-5 text-center fst-italic' style={{height:'40vh'}}>No Item To watch !!</h1> : '' }
             {cartItem?.map((data)=>{
             return(
-              <div className="col-md-2 my-4 watchLater">
-                <div class="card" id='card' style={{width: "10rem"}}>
+              <div className="col-6 col-md-4 col-lg-3 col-xl-2 my-4 watchLater" style={{display:'flex',justifyContent:'center'}}>
+                <div class="card" id='card' style={{maxWidth: "10rem"}}>
                 <Link
                   to={`/Home/${data.name || data.genre_ids[1] || data.genre_ids[0]}`}
                   onClick={() => {
@@ -45,7 +44,6 @@ const clearCard = (data)=>{
             );
             })}
         </div>
-    </div>
   )
 }
 

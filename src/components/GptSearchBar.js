@@ -57,7 +57,7 @@ const GptSearchBar = () => {
 
   return (
     <>
-      <div class="row gap-3 col-5 mx-auto">
+      <div class="row gap-3 col-12 col-lg-5 mx-auto">
         <div class="input-group mb-3 gap-3">
             <input type="text" class="form-control" placeholder={language[langkey].gptPlaceholder} aria-label="Example text with button addon" aria-describedby="button-addon1" ref={addSearchText} onKeyDown={(e) => {
                 if (e.key === 'Enter') {
