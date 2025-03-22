@@ -29,7 +29,7 @@ const GptMovieSuggestion = () => {
               storeDispatch(cardGenre(movieNames));
             }}
           >
-            <img src={`${base_url}${data?.poster_path}`} className="card-img-top" alt="..." onError={(e) => e.target.closest('.card').classList.add('d-none')} />
+            <img src={`${base_url}${data?.poster_path}`} className="card-img-top" alt="..." onError={(e) => e.target.closest('.card').classList.add('d-none')} loading='lazy'/>
           </Link>
               <button type="button" class="btn btn-danger btn-sm position-absolute top-0 start-100 translate-middle my-3" 
               onClick={(e) => {

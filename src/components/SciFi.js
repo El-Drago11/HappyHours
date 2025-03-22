@@ -119,6 +119,7 @@ const SciFi = ({ url ,title}) => {
                   alt={value.name || 'Image'}
                   onLoad={() => handleImageLoad(index)}
                   style={{ display: imageLoadStatus[index] ? 'block' : 'none' }}
+                  loading='lazy'
                 />
               </Link>
               <button

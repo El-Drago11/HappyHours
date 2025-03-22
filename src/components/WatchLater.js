@@ -36,7 +36,7 @@ const clearCard = (data)=>{
                     storeDispatch(cardGenre(cartItem));
                   }}
                 >
-                  <img src={`${base_url}${data.poster_path}`} class="card-img-top" alt="..." onError={(e) => e.target.closest('.watchLater').classList.add('d-none')} />
+                  <img src={`${base_url}${data.poster_path}`} class="card-img-top" alt="..." onError={(e) => e.target.closest('.watchLater').classList.add('d-none')} loading='lazy'/>
                 </Link>
                   <button  type="button" class="btn btn-danger position-absolute top-0 start-100 translate-middle p-2 my-md-3" onClick={()=>clearCard(data)}>-</button>
                 </div>

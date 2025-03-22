@@ -5,7 +5,7 @@ const SlideShow = (props) => {
   return (
     <>
         <div className="carousel mb-md-3 mx-md-3" id='item' style={{textAlign:'center'}}>
-            <img src={props.image} className="card-img-top img-fluid" alt="..."/>
+            <img src={props.image} className="card-img-top img-fluid" alt="..." loading='lazy'/>
         </div>
     </>
   )
