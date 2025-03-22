@@ -23,3 +23,9 @@ body{
 #card:hover>#addCartBtn{
     visibility: visible;
 }
+
+#user-login-signup {
+    width: fit-content;
+}
+
+ 

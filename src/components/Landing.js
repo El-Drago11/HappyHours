@@ -75,7 +75,7 @@ const Landing = () => {
     <>
     <div className='container-fluid' id='Main' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
     <div className='container-fluid position-absolute top-0 start-0 bg-black bg-opacity-50' id='logo'><h1 className='text-danger 'style={{background:'red',WebkitBackgroundClip:'Text',WebkitTextFillColor:'transparent' , fontSize:'3rem',fontWeight:'500'}}>HappyHours</h1></div>
-      <div className='container' style={{width:'25rem'}}>
+      <div className='container' id='user-login-signup'>
         {/* e.preventDefault => it will prevent the form from rendering or submiting */}
         <form className='container mx-auto text-light bg-black bg-opacity-75 p-5' onSubmit={(e) => e.preventDefault()}>
           <h2 className='mb-4'><b>{isSign ? "SIGN-IN" : "Sign-UP"}</b></h2>
