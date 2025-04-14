@@ -25,6 +25,7 @@ const Landing = () => {
   const validation = () => {
     // //---> step1: validation of data
     const message = checkValidData(email.current.value, password.current.value);
+
     toast.error(message);
 
     //--->step2: check for error

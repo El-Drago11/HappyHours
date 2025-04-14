@@ -19,7 +19,7 @@ export const checkUserData = (email,phoneNumber,fullname,password) => {
 
     // If email or password is invalid;
     if(!isEmailValid) return "Email Invaild !!!";
-    if(!isPasswordValid) return "Not a strong password";
+    if(!isPasswordValid) return "Not a strong password must conatins at least 1)Uppercase and Lowercase 2)Special character 4)Digit ";
     if(!isPhoneNumberValid) return "Phone Number not valid";
     if(!isFullNameValid) return "Name not valid";
 
